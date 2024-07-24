@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1>Fintrak Employees Info</h1>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fintrak Employee's Info</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      #employeeList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .employeeCard {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .employeeCard:hover {
+        transform: translateY(-5px);
+      }
+
+      h2 a {
+        color: #3498db;
+        text-decoration: none;
+      }
+
+      p {
+        color: #777;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+        margin-top: 10px;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fintrak Employee's Info</h1>
+    <div id="employeeList"></div>
+
+    <script>
+      const employees = [
+        {
+          name: "Bright",
+          age: 20,
+          cars: [
+            { name: "Ford", models: ["Fiesta", "Focus", "Mustang"] },
+            { name: "BMW", models: ["320", "X3", "X5"] },
+            { name: "Fiat", models: ["500", "Panda"] },
+          ],
+        },
+        {
+          name: "Mark",
+          age: 24,
+          cars: [
+            { name: "Jaguar", models: ["Fiesta", "Focus", "Mustang"] },
+            { name: "BMW", models: ["320", "X3", "X5"] },
+            { name: "Fiat", models: ["500", "Panda"] },
+          ],
+        },
+        {
+          name: "Richard",
+          age: 20,
+          cars: [
+            { name: "Volvo", models: ["Fiesta", "Focus", "Mustang"] },
+            { name: "BMW", models: ["320", "X3", "X5"] },
+            { name: "Fiat", models: ["500", "Panda"] },
+          ],
+        },
+      ];
+
+      function renderEmployee(employee) {
+        const employeeDiv = document.createElement("div");
+        employeeDiv.className = "employeeCard";
+        employeeDiv.innerHTML = `<h2><a href="employee_details.html?name=${encodeURIComponent(
+          employee.name
+        )}&age=${employee.age}">${employee.name}</a></h2>
+                                     <p>Age: ${employee.age}</p>
+                                     <ul>${employee.cars
+                                       .map(
+                                         (car) =>
+                                           `<li>${car.name}: ${car.models.join(
+                                             ", "
+                                           )}</li>`
+                                       )
+                                       .join("")}</ul>`;
+        document.getElementById("employeeList").appendChild(employeeDiv);
+      }
+
+      employees.forEach(renderEmployee);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1 style="text-align: center;">Fintrak Employee info</h1>
+    <body>
+      <img
+        src="images/WhatsApp Image 2023-11-12 at 05.49.39_72ef7fda.jpg"
+        alt="An image of Ben"
+      />
+      <p class="username">@Ben_ard91</p>
+      <p>Aspiring full stack developer</p>
+    </body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adekunle's first web page</title>
+    <style>
+      img {
+        width: 100px;
+        border-radius: 50px;
+        float: left;
+        margin-right: 10px;
+      }
+      p.username {
+        font-weight: bold;
+      }
+      body{
+        background: #3498db;
+      }
+    </style>
+    <style>
+       {
+        font-family: "Arial", sans-serif;
+        background-color: #f7f7f7;
+        background-image: url("https://subtlepatterns.com/patterns/symphony.png");
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      #employee-list {
+        display: flex;
+        gap: 150px;
+      }
+
+      .employee-card {
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        width: 300px;
+        transition: transform 1.0s;
+      }
+
+      .employee-card:hover {
+        transform: scale(1.05);
+      }
+
+      h2 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #555;
+        margin: 0 0 10px;
+      }
+
+      h3 {
+        margin-top: 10px;
+        color: #555;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0;
+      }
+
+      li {
+        margin-bottom: 5px;
+        color: #777;
+      }
+
+      a {
+        color: #3498db;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="employee-list"></div>
+
+    <script>
+      // Employee data
+      const employees = [
+        {
+          name: "Bright",
+          age: 20,
+          cars: [
+            { name: "Ford", models: ["Fiesta", "Focus", "Mustang"] },
+            { name: "BMW", models: ["320", "X3", "X5"] },
+            { name: "Fiat", models: ["500", "Panda"] },
+          ],
+        },
+        {
+          name: "Mark",
+          age: 24,
+          cars: [
+            { name: "Jaguar", models: ["Fiesta", "Focus", "Mustang"] },
+            { name: "BMW", models: ["320", "X3", "X5"] },
+            { name: "Fiat", models: ["500", "Panda"] },
+          ],
+        },
+        {
+          name: "Richard",
+          age: 20,
+          cars: [
+            { name: "Volvo", models: ["Fiesta", "Focus", "Mustang"] },
+            { name: "BMW", models: ["320", "X3", "X5"] },
+            { name: "Fiat", models: ["500", "Panda"] },
+          ],
+        },
+      ];
+
+      function renderEmployeeData() {
+        const employeeListDiv = document.getElementById("employee-list");
+
+        employees.forEach((employee) => {
+          const employeeDiv = document.createElement("div");
+          employeeDiv.className = "employee-card";
+          employeeDiv.innerHTML = `<h2>${employee.name}</h2>
+                                         <p>Age: ${employee.age}</p>
+                                         <h3>Cars:</h3>
+                                         <ul>${renderCars(employee.cars)}</ul>`;
+
+          employeeListDiv.appendChild(employeeDiv);
+        });
+      }
+
+      function renderCars(cars) {
+        return cars
+          .map((car) => {
+            return `<li><a href="car.html" target="_blank">${car.name}</a></li>`;
+          })
+          .join("");
+      }
+
+      renderEmployeeData();
+    </script>
+  </body>
+</html>
